@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply h-full;
+    box-shadow: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    
+}
+
+body {
+  background: #FFFBF5;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif, 'Great Vibes', cursive;;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #674188;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  object-fit: cover;
+}
+
+.framerMotion {
+  animation: framerMotion 0.3s;
+}
+
+@keyframes framerMotion {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
