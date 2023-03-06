@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply h-full;
+  box-shadow: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #fffbf5;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif, "Great Vibes",
+    cursive;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #674188;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  object-fit: cover;
+}
+
+.framerMotion {
+  animation: framerMotion 0.3s;
+}
+.glamour {
+  font-family: "Great Vibes";
+}
+.leavesContainer {
+  background: radial-gradient(#333, #000);
+  overflow: hidden;
+}
+.leavesBox {
+  position: absolute;
+  display: block;
+}
+.leavesBox:nth-child(1) {
+  left: 20%;
+  animation: animateLeave 15s linear infinite;
+  animation-delay: -7s;
+}
+.leavesBox:nth-child(2) {
+  left: 50%;
+  animation: animateLeave 15s linear infinite;
+  animation-delay: -5s;
+}
+.leavesBox:nth-child(3) {
+  left: 70%;
+  animation: animateLeave 20s linear infinite;
+  animation-delay: 0s;
+}
+.leavesBox:nth-child(4) {
+  left: 0%;
+  animation: animateLeave 15s linear infinite;
+  animation-delay: -5s;
+}
+.leavesBox:nth-child(5) {
+  left: 85%;
+  animation: animateLeave 18s linear infinite;
+  animation-delay: -10s;
+}
+.leavesBox:nth-child(6) {
+  left: 0%;
+  animation: animateLeave 12s linear infinite;
+}
+.leavesBox:nth-child(7) {
+  left: 15%;
+  animation: animateLeave 14s linear infinite;
+}
+.leavesBox:nth-child(8) {
+  left: 60%;
+  animation: animateLeave 15s linear infinite;
+}
+@keyframes framerMotion {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+@keyframes animateLeave {
+  0% {
+    opacity: 0;
+    top: -10%;
+    transform: translteX(20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: translteX(-20px) rotate(45deg);
+  }
+  40% {
+    transform: translteX(-20px) rotate(90deg);
+  }
+  60% {
+    transform: translteX(20px) rotate(180deg);
+  }
+  80% {
+    transform: translteX(-20px) rotate(180deg);
+  }
+  100% {
+    top: 110%;
+    transform: translteX(-20px) rotate(225deg);
+  }
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.bounceImg {
+  animation: float 2.5s infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateY(10px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
