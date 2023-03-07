@@ -35,7 +35,7 @@ const SignUp = () => {
         <h1 className="glamour absolute top-[35%] left-16 z-50 text-center mb-10 text-5xl text-[#F7EFE5] ">
           Glamour Photos
         </h1>
-        <div className="flex justify-between w-[90vw] opacity-95 rounded-md absolute top-80 left-5 h-auto py-5 bg-[#F7EFE5]">
+        <div className="flex justify-between w-[90vw] opacity-95 rounded-md absolute top-[45%] left-5 h-auto py-5 bg-[#F7EFE5]">
           <form
             className="flex flex-col w-full"
             onSubmit={handleSubmit(onSubmit)}

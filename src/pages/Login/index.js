@@ -17,7 +17,8 @@ const Login = () => {
 
   const checkAccount = (data) => {
     let account = JSON.parse(localStorage.getItem("account"));
-    if (account.email === data.email) {
+    console.log("account ", account);
+    if (account?.email === data?.email) {
       if (account.password === data.password) {
         localStorage.setItem("token", "logadocomsucesso");
         toast("Logged in successfully. ✅", {
@@ -30,8 +31,8 @@ const Login = () => {
           progress: undefined,
           theme: "dark",
         });
-        navigate("/")
-      }else{
+        navigate("/");
+      } else {
         toast("Password not registered. ⚠️", {
           position: "top-right",
           autoClose: 5000,
@@ -55,6 +56,18 @@ const Login = () => {
         theme: "dark",
       });
     }
+    if (account === null) {
+      toast("E-mail not registered. ⚠️", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
   return (
     <>
@@ -63,7 +76,7 @@ const Login = () => {
         <h1 className="glamour absolute top-[35%] left-16 z-50 text-center mb-10 text-5xl text-[#F7EFE5] ">
           Glamour Photos
         </h1>
-        <div className="flex justify-between w-[90vw] opacity-95 rounded-md absolute top-80 left-5 h-auto py-5 bg-[#F7EFE5]">
+        <div className="flex justify-between w-[90vw] opacity-95 rounded-md absolute top-[45%] left-5 h-auto py-5 bg-[#F7EFE5]">
           <form
             className="flex flex-col w-full"
             onSubmit={handleSubmit(onSubmit)}
@@ -75,7 +88,7 @@ const Login = () => {
                 <div className="flex w-full justify-between items-center px-10">
                   <label className="mr-1 h-5">E-mail: </label>
                   <input
-                  type="email"
+                    type="email"
                     className="border border-black rounded-md p-1"
                     {...register("email", { required: true })}
                   />
