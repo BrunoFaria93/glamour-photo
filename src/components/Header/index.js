@@ -28,43 +28,47 @@ const Header = ({ setOpen, open, height, numCart }) => {
               style={{ height: height }}
               className="framerMotion absolute top-[10vh] left-0 z-50 overflow-hidden bg-[#170e1e] opacity-90 w-screen"
             ></div>
-            <div className="framerMotion absolute top-[10vh] left-0 z-50 bg-[#FFFBF5] w-[60vw] h-[90vh] py-5">
+            <div className="framerMotion text-[#674188] absolute top-[10vh] left-0 z-50 bg-[#F7EFE5] w-[60vw] h-[90vh] py-5">
               <div className="flex flex-col gap-4 h-full w-full px-3">
-                <div className="flex h-auto gap-1">
-                  <img
-                    className="h-5 w-5"
-                    src={require("../../assets/linkedin.png")}
-                    alt=""
-                  ></img>
-                  <a href="https://www.linkedin.com/in/brunofaria93/">
-                    Linkedin
-                  </a>
-                </div>
-                <div className="flex h-auto gap-1">
-                  <img
-                    className="h-5 w-5"
-                    src={require("../../assets/github.png")}
-                    alt=""
-                  ></img>
-                  <a href="https://github.com/BrunoFaria93">Github</a>
-                </div>
-                <div className="flex gap-1 h-28 justify-end mr-5 mt-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                    onClick={() => navigate("/login")}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
-                    />
-                  </svg>
-                  SignOut
+                <div className="flex flex-col justify-between h-full">
+                  <div className="flex flex-col gap-4">
+                    <div className="flex h-auto gap-1">
+                      <img
+                        className="h-5 w-5"
+                        src={require("../../assets/linkedin.png")}
+                        alt=""
+                      ></img>
+                      <a href="https://www.linkedin.com/in/brunofaria93/">
+                        Linkedin
+                      </a>
+                    </div>
+                    <div className="flex h-auto gap-1">
+                      <img
+                        className="h-5 w-5"
+                        src={require("../../assets/github.png")}
+                        alt=""
+                      ></img>
+                      <a href="https://github.com/BrunoFaria93">Github</a>
+                    </div>
+                  </div>
+                  <div onClick={() => navigate("/login")} className="flex gap-1 h-28 justify-end mr-5 mt-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                      onClick={() => navigate("/login")}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                      />
+                    </svg>
+                    SignOut
+                  </div>
                 </div>
               </div>
             </div>
@@ -76,7 +80,7 @@ const Header = ({ setOpen, open, height, numCart }) => {
             Glamour Photos
           </h1>
         </div>
-        <div className="relative">
+        <div onClick={() => navigate("/cart")} className="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

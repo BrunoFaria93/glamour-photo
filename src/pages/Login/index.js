@@ -1,7 +1,7 @@
-import { useEffect } from "react";
 import { GoogleLoginButton } from "react-social-login-buttons";
 import { LoginSocialGoogle } from "reactjs-social-login";
 import LeavesAnimation from "../../components/LeavesAnimation";
+// import { toast } from "react-toastify";
 const Login = () => {
   return (
     <>
@@ -16,6 +16,16 @@ const Login = () => {
           discoveryDocs="claims_supported"
           access_type="offline"
           onResolve={({ provider, data }) => {
+            // toast("Login efetuado com sucesso! ✅", {
+            //   position: "top-right",
+            //   autoClose: 5000,
+            //   hideProgressBar: false,
+            //   closeOnClick: true,
+            //   pauseOnHover: true,
+            //   draggable: true,
+            //   progress: undefined,
+            //   theme: "dark",
+            // });
             console.log(provider, data);
           }}
           onReject={(err) => {
@@ -26,7 +36,6 @@ const Login = () => {
 
           <div className="w-[60%] absolute top-[50%] left-[18%] opacity-90 z-50 flex justify-center items-center">
             <GoogleLoginButton
-              text="Logar com o Google"
               style={{
                 borderRadius: "10px",
                 backgroundColor: "#FFFBF5",

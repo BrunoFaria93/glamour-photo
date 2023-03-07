@@ -33,6 +33,25 @@ const Cart = () => {
     localStorage.setItem("cartStorage", JSON.stringify(cartItems));
   };
 
+  function generateFileName() {
+    return `img${Math.floor(Math.random() * 90000) + 10000}`;
+  }
+  // const downloadFiles = () => {
+  //   console.log("entrei aqui")
+  //   for (let i = 0; i < cartItems.length; i++) {
+  //     fetch(cartItems[i].url)
+  //       .then((res) => res.blob())
+  //       .then((blob) => {
+  //         let objectURL = URL.createObjectURL(blob);
+  //         let myImage = new Image();
+  //         myImage.href = blob;
+  //         myImage.download = generateFileName();
+  //         document.body.appendChild(myImage);
+  //         myImage.click();
+  //         document.body.removeChild(myImage);
+  //       });
+  //   }
+  // };
   return (
     <main style={{ height: height }} className="w-full bg-[#F7EFE5]">
       <Header
@@ -56,12 +75,12 @@ const Cart = () => {
         </>
       ) : (
         <>
-          <div className="flex flex-col  bg-[#F7EFE5] h-[85vh] gap-2 p-5 px-3 overflow-y-auto">
+          <div className="flex flex-col bg-[#F7EFE5] h-[85vh] gap-2 p-5 px-3 overflow-y-auto">
             {cartItems?.map((cartItem, index) => {
               total = cartItem?.price + total;
               return (
                 <div key={index} className="flex justify-between relative">
-                  <div className="flex justify-center items-center bg-red-500 w-6 h-6 absolute left-28 rounded-full">
+                  <div className="flex justify-center items-center bg-[#ff6347] w-6 h-6 absolute right-2 top-2 rounded-full">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -80,13 +99,14 @@ const Cart = () => {
                       />
                     </svg>
                   </div>
+                  <div className="absolute bg-gradient-to-r from-slate-900 rounded-md h-32 top-0 left-0 w-20"></div>
                   <img
                     src={cartItem?.url}
                     alt=""
-                    className="w-32 rounded-md h-32 object-cover"
+                    className="w-full rounded-md h-32 object-cover"
                   ></img>
-                  <div className="text-[#674188] ">
-                    Preço: R${cartItem?.price},00
+                  <div className="text-[#FFFBF5] absolute right-2 bottom-2 bg-[#674188] p-1 px-2 opacity-95 rounded-md">
+                    R$ {cartItem?.price},00
                   </div>
                 </div>
               );
@@ -97,23 +117,26 @@ const Cart = () => {
                   setCartItems([]);
                   localStorage.clear();
                 }}
-                className="text-[#ff6347] py-1 rounded-md font-bold"
+                className="text-[#ff6347] pb-2 rounded-md font-bold"
               >
-                Limpar tudo
+                Clear shopping cart
               </button>
               <div className="flex flex-col justify-start items-end mt-7">
-                <div className="text-[#674188] font-bold">
+                <div className="text-[#674188] font-bold text-lg">
                   <p>Total: R${total},00</p>
                 </div>
                 <button
                   onClick={() => {
+                    // downloadFiles();
                     setCartItems([]);
                     localStorage.clear();
-                    navigate("/sucessPurchase");
+                    navigate("/sucessPurchase", {
+                      state: { cartItems: cartItems },
+                    });
                   }}
-                  className="bg-[#674188] text-white px-4 py-1 rounded-md mt-2"
+                  className="bg-[#674188] text-white px-4 py-1 rounded-md mt-2 font-bold"
                 >
-                  Finalizar compra
+                  Proceed to checkout
                 </button>
               </div>
             </div>

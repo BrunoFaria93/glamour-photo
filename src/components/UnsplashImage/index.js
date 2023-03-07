@@ -22,8 +22,8 @@ export const UnsplashImage = ({
     var doubledItem = false;
     cartItems.map((item) => {
       if (item.url === url) {
-        doubledItem = true
-        toast('Esta foto já foi adicionada ao seu carrinho.', {
+        doubledItem = true;
+        toast("This photo has already been added to your cart. ⚠️", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -32,17 +32,25 @@ export const UnsplashImage = ({
           draggable: true,
           progress: undefined,
           theme: "dark",
-          });
-        
+        });
       }
     });
     if (!doubledItem) {
+      toast("Photo added to cart. 🛒", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       setCartItems([...cartItems, { url: url, price: price }]);
     }
   };
   return (
     <>
-
       <Img key={key} src={url} alt="" />
       <div
         onClick={() => addToCart()}
@@ -52,7 +60,7 @@ export const UnsplashImage = ({
             : "absolute right-3 top-20 bg-[#674188] px-4 text-white font-bold py-1.5 rounded-full"
         }
       >
-        Comprar
+        Buy
       </div>
     </>
   );
