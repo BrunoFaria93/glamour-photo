@@ -51,7 +51,7 @@ const ProductsContainer = ({ height }) => {
 
     axios
       .get(
-        `${apiRoot}/photos/random?client_id=${"VE_temWsmXpXnF6KQWyP-fY2SPZMEMYvS-d6y9hR1MQ"}&count=${count}`
+        `${apiRoot}/photos/random?client_id=${"21ehMlkFsB_An7bE-IlEPs4MRMzowMy2wg5i-0U_QwE"}&count=${count}`
       )
       .then((res) => {
         setImages([...images, ...res.data]);
