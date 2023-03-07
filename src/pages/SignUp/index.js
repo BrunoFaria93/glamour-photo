@@ -1,65 +1,37 @@
 import LeavesAnimation from "../../components/LeavesAnimation";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-const Login = () => {
-  const navigate = useNavigate();
+import { toast } from "react-toastify";
 
+const SignUp = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => checkAccount(data);
-
-  const checkAccount = (data) => {
-    let account = JSON.parse(localStorage.getItem("account"));
-    if (account.email === data.email) {
-      if (account.password === data.password) {
-        localStorage.setItem("token", "logadocomsucesso");
-        toast("Logged in successfully. ✅", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-        navigate("/")
-      }else{
-        toast("Password not registered. ⚠️", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      }
-    } else {
-      toast("E-mail not registered. ⚠️", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
+  const onSubmit = (data) => {
+    localStorage.setItem("account", JSON.stringify(data));
+    toast("Account created successfully. ✅", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    navigate("/login");
   };
   return (
     <>
       <LeavesAnimation />
-      <div className=" flex flex-col justify-center items-center w-screen h-screen bg-[#C3ACD0] ">
+      <div className=" flex flex-col justify-center items-center w-screen h-screen bg-[#C3ACD0]">
         <h1 className="glamour absolute top-[35%] left-16 z-50 text-center mb-10 text-5xl text-[#F7EFE5] ">
           Glamour Photos
         </h1>
@@ -75,7 +47,7 @@ const Login = () => {
                 <div className="flex w-full justify-between items-center px-10">
                   <label className="mr-1 h-5">E-mail: </label>
                   <input
-                  type="email"
+                    type="email"
                     className="border border-black rounded-md p-1"
                     {...register("email", { required: true })}
                   />
@@ -90,6 +62,7 @@ const Login = () => {
               <div className="flex flex-col">
                 <div className="flex w-full justify-between items-center px-10">
                   <label className="mr-1">Password: </label>
+
                   <input
                     type="password"
                     className="border border-black rounded-md p-1"
@@ -106,15 +79,15 @@ const Login = () => {
             <input
               className="h-6 mt-5 bg-[#674188] w-20 mx-auto text-white rounded-full"
               type="submit"
-              value="Login"
+              value="SignUp"
             />
             <div className="flex justify-center items-center mt-2">
-              <p>Don't have an account yet? </p>
+              <p>Already have an account?  </p>
               <div
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate("/login")}
                 className="text-[#674188] font-bold ml-1 underline underline-offset-2"
               >
-                Create one.
+                Login here
               </div>
             </div>
           </form>
@@ -123,4 +96,5 @@ const Login = () => {
     </>
   );
 };
-export default Login;
+
+export default SignUp;

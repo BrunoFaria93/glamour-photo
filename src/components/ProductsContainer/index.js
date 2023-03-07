@@ -11,6 +11,7 @@ import "swiper/css";
 
 import "../../index.css";
 import Header from "../Header";
+import { useNavigate } from "react-router-dom";
 
 const WrapperImages = styled.section`
   max-width: 70rem;
@@ -22,9 +23,22 @@ const WrapperImages = styled.section`
 const ProductsContainer = ({ height }) => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartStorage")) || [])
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cartStorage")) || []
+  );
   const [open, setOpen] = useState(false);
-
+  const navigate = useNavigate();
+  useEffect( () => {
+    console.log("entrei")
+    const token = localStorage.getItem("token")
+    console.log("token ", token)
+    if (token !== "logadocomsucesso") {
+      navigate("/login");
+    }
+    if (token === null) {
+      navigate("/login");
+    }
+  }, []);
   useEffect(() => {
     fetchImages();
   }, []);
@@ -49,7 +63,12 @@ const ProductsContainer = ({ height }) => {
 
   return (
     <>
-      <Header setOpen={setOpen} open={open} height={height} numCart={cartItems?.length}/>
+      <Header
+        setOpen={setOpen}
+        open={open}
+        height={height}
+        numCart={cartItems?.length}
+      />
       {loading ? (
         <>
           <button type="button" class="bg-indigo-500 ..." disabled>
