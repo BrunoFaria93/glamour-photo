@@ -70,7 +70,7 @@ const Cart = () => {
             ></img>
           </div>
           <h2 className="text-center mt-6 text-lg font-bold">
-            Seu carrinho está vazio.
+          Your shopping cart is empty.
           </h2>
         </>
       ) : (
