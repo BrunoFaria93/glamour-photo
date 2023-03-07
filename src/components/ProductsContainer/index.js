@@ -29,9 +29,7 @@ const ProductsContainer = ({ height }) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   useEffect( () => {
-    console.log("entrei")
     const token = localStorage.getItem("token")
-    console.log("token ", token)
     if (token !== "logadocomsucesso") {
       navigate("/login");
     }
