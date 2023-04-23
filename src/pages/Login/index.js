@@ -74,11 +74,10 @@ const Login = () => {
       <div className=" flex flex-col justify-center items-center w-screen h-screen bg-[#674188]">
         <div className="framerMotion flex justify-center items-center gap-3">
           <img
-            className="h-14 w-14"
-            src={require("../../assets/camera.png")}
+            className="h-36 w-48 object-cover"
+            src={require("../../assets/logo2.png")}
             alt="cameraIcont"
           />
-          <h1 className="glamour text-white text-2xl mt-2">Glamour Photos</h1>
         </div>
 
         <div className="flex justify-center rounded-md h-auto py-5">
