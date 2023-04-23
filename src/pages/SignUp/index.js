@@ -30,67 +30,85 @@ const SignUp = () => {
   };
   return (
     <>
-      <LeavesAnimation />
-      <div className=" flex flex-col justify-center items-center w-screen h-screen bg-[#C3ACD0]">
-        <h1 className="glamour absolute top-[35%] left-16 z-50 text-center mb-10 text-5xl text-[#F7EFE5] ">
-          Glamour Photos
-        </h1>
-        <div className="flex justify-between w-[90vw] opacity-95 rounded-md absolute top-[45%] left-5 h-auto py-5 bg-[#F7EFE5]">
-          <form
-            className="flex flex-col w-full"
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            {/* <input placeholder="Email" {...register("example")} /> */}
+      <div className=" flex flex-col justify-center items-center w-screen h-screen bg-[#674188]">
+        <div className="framerMotion flex justify-center items-center gap-3">
+          <img
+            className="h-14 w-14"
+            src={require("../../assets/camera.png")}
+            alt="cameraIcont"
+          />
+          <h1 className="glamour text-white text-2xl mt-2">Glamour Photos</h1>
+        </div>
 
-            <div className="relative flex flex-col gap-2 mt-5">
-              <div className="flex flex-col">
-                <div className="flex w-full justify-between items-center px-10">
-                  <label className="mr-1 h-5">E-mail: </label>
-                  <input
-                    type="email"
-                    className="border border-black rounded-md p-1"
-                    {...register("email", { required: true })}
-                  />
-                </div>
+        <div className="flex justify-center rounded-md h-auto py-5">
+          <div class="w-screen flex flex-col justify-center items-center">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="entrance bg-white shadow-md w-[90vw] rounded px-3 pt-5 pb-5 mb-4"
+            >
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  for="username"
+                >
+                  Username
+                </label>
+                <input
+                  {...register("email", { required: true })}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="username"
+                  type="text"
+                  placeholder="Username"
+                />
                 {errors.email && (
-                  <span className="text-red-500 absolute right-24 top-1">
-                    E-mail is required
-                  </span>
+                  <p className="text-red-500 text-xs italic">
+                    Please choose a email.
+                  </p>
                 )}
               </div>
-
-              <div className="flex flex-col">
-                <div className="flex w-full justify-between items-center px-10">
-                  <label className="mr-1">Password: </label>
-
-                  <input
-                    type="password"
-                    className="border border-black rounded-md p-1"
-                    {...register("password", { required: true })}
-                  />
-                </div>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  for="password"
+                >
+                  Password
+                </label>
+                <input
+                  {...register("password", { required: true })}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="password"
+                  type="password"
+                  placeholder="********"
+                />
                 {errors.password && (
-                  <span className="text-red-500 absolute right-20 bottom-1">
-                    Password is required
-                  </span>
+                  <p className="text-red-500 text-xs italic">
+                    Please choose a password.
+                  </p>
                 )}
               </div>
-            </div>
-            <input
-              className="h-6 mt-5 bg-[#674188] w-20 mx-auto text-white rounded-full"
-              type="submit"
-              value="SignUp"
-            />
-            <div className="flex justify-center items-center mt-2">
-              <p>Already have an account?  </p>
-              <div
-                onClick={() => navigate("/login")}
-                className="text-[#674188] font-bold ml-1 underline underline-offset-2"
-              >
-                Login here
+              <div className="flex flex-col items-center">
+                <button
+                  className="bg-[#674188] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                  value="SignUp"
+                >
+                  Signup
+                </button>
+                <div className="flex text-center mt-2 justify-center items-center w-full">
+                  <p>Already have an account? </p>
+                  <div
+                    onClick={() => navigate("/signup")}
+                    className="text-[#674188] font-bold ml-1 underline underline-offset-2"
+                  >
+                    Login here.
+                  </div>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+            <p class="text-center text-white text-xs">
+              &copy;2023 by Bruno Faria.
+            </p>
+          </div>
         </div>
       </div>
     </>
