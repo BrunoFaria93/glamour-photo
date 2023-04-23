@@ -5,7 +5,7 @@ const Header = ({ setOpen, open, height, numCart }) => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex justify-center items-center h-[10vh] py-3 w-full bg-[#674188]">
+      <header className="sticky top-0 z-50 flex justify-center items-center h-[8vh] py-3 w-full bg-[#674188]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
