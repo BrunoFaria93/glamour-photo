@@ -32,6 +32,14 @@ const Header = ({ setOpen, open, height, numCart }) => {
               <div className="flex flex-col gap-4 h-full w-full px-3">
                 <div className="flex flex-col justify-between h-full">
                   <div className="flex flex-col gap-4">
+                  <div className="flex h-auto gap-1">
+                      <img
+                        className="h-5 w-5"
+                        src={require("../../assets/resume.png")}
+                        alt=""
+                      ></img>
+                      <a href="https://portfolio-ochre-beta-17.vercel.app">Portfólio</a>
+                    </div>
                     <div className="flex h-auto gap-1">
                       <img
                         className="h-5 w-5"
@@ -53,7 +61,7 @@ const Header = ({ setOpen, open, height, numCart }) => {
                   </div>
                   <div
                     onClick={() => navigate("/login")}
-                    className="flex gap-1 h-28 justify-end mr-5 mt-10"
+                    className="flex gap-1 h-12 justify-end mr-5"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -81,8 +89,8 @@ const Header = ({ setOpen, open, height, numCart }) => {
         <div className="h-auto flex justify-center text-2xl items-center w-full text-[#674188]">
           <img
             onClick={() => navigate("/")}
-            className="h-36 w-36 mt-10 ml-3 object-cover"
-            src={require("../../assets/logo.png")}
+            className="h-44 w-44 ml-2 object-cover"
+            src={require("../../assets/logoGLA.png")}
             alt="cameraIcont"
           />
         </div>

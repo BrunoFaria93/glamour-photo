@@ -56,8 +56,8 @@ export const UnsplashImage = ({
         onClick={() => addToCart()}
         className={
           longText
-            ? "absolute right-3 top-24 bg-gradient-to-t text-sm from-[#53346e] to-[#674188] px-4 text-white font-bold py-1.5 rounded-full"
-            : "absolute right-3 top-20 bg-[#674188] px-4 text-sm text-white font-bold py-1.5 rounded-full"
+            ? "absolute right-3 top-24 bg-gradient-to-t from-[#53346e] to-[#674188] px-4 text-white font-bold py-1.5 rounded-full"
+            : "absolute right-3 top-20 bg-[#674188] px-4 text-white font-bold py-1.5 rounded-full"
         }
       >
         Buy
