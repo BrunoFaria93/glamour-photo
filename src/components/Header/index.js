@@ -5,14 +5,14 @@ const Header = ({ setOpen, open, height, numCart }) => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex justify-center items-center h-[10vh] py-3 w-full bg-[#FFFBF5]">
+      <header className="sticky top-0 z-50 flex justify-center items-center h-[10vh] py-3 w-full bg-[#674188]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-7 h-7 ml-2 text-[#674188]"
+          className="w-7 h-7 ml-2 text-white"
           onClick={() => setOpen(!open)}
         >
           <path
@@ -51,7 +51,10 @@ const Header = ({ setOpen, open, height, numCart }) => {
                       <a href="https://github.com/BrunoFaria93">Github</a>
                     </div>
                   </div>
-                  <div onClick={() => navigate("/login")} className="flex gap-1 h-28 justify-end mr-5 mt-10">
+                  <div
+                    onClick={() => navigate("/login")}
+                    className="flex gap-1 h-28 justify-end mr-5 mt-10"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -76,9 +79,12 @@ const Header = ({ setOpen, open, height, numCart }) => {
         )}
 
         <div className="h-auto flex justify-center text-2xl items-center w-full text-[#674188]">
-          <h1 onClick={() => navigate("/")} className="glamour font-bold">
-            Glamour Photos
-          </h1>
+          <img
+            onClick={() => navigate("/")}
+            className="h-36 w-36 mt-10 ml-3 object-cover"
+            src={require("../../assets/logo.png")}
+            alt="cameraIcont"
+          />
         </div>
         <div onClick={() => navigate("/cart")} className="relative">
           <svg
@@ -87,7 +93,7 @@ const Header = ({ setOpen, open, height, numCart }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-7 h-7 mr-3 text-[#674188]"
+            className="w-7 h-7 mr-3 text-white"
             onClick={() => navigate("/cart")}
           >
             <path
@@ -98,8 +104,8 @@ const Header = ({ setOpen, open, height, numCart }) => {
           </svg>
           {numCart > 0 && (
             <>
-              <div className="bg-[#674188] absolute -top-2 right-2 rounded-full h-4 w-4 animate-ping "></div>
-              <div className="bg-[#674188] absolute -top-2 right-2  rounded-full h-4 w-4 flex justify-center items-center">
+              <div className="bg-orange-600 absolute -top-2 right-2 rounded-full h-4 w-4 animate-ping "></div>
+              <div className="bg-orange-600 absolute -top-2 right-2  rounded-full h-4 w-4 flex justify-center items-center">
                 <span className="text-[8px] text-white">{numCart}</span>
               </div>
             </>

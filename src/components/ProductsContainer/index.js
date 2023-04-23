@@ -107,7 +107,7 @@ const ProductsContainer = ({ height }) => {
                             }
                             url={image?.urls?.small}
                           />
-                          <div className="px-3 py-1 absolute text-[#674188] bg-[#F7EFE5] top-0 left-0 right-0 w-screen">
+                          <div className="px-3 py-1 absolute font-bold text-sm text-[#674188] bg-[#F7EFE5] top-0 left-0 right-0 w-screen">
                             Description: {image?.alt_description}
                           </div>
                         </div>
