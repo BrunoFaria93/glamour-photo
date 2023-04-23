@@ -26,9 +26,9 @@ const Header = ({ setOpen, open, height, numCart }) => {
             <div
               onClick={() => setOpen(false)}
               style={{ height: height }}
-              className="framerMotion absolute top-[10vh] left-0 z-50 overflow-hidden bg-[#170e1e] opacity-90 w-screen"
+              className="framerMotion2 absolute top-[10vh] left-0 z-50 overflow-hidden bg-[#170e1e] opacity-90 w-screen"
             ></div>
-            <div className="framerMotion text-[#674188] absolute top-[10vh] left-0 z-50 bg-[#F7EFE5] w-[60vw] h-[90vh] py-5">
+            <div className="framerMotion2 text-[#674188] absolute top-[10vh] left-0 z-50 bg-[#F7EFE5] w-[60vw] h-[90vh] py-5">
               <div className="flex flex-col gap-4 h-full w-full px-3">
                 <div className="flex flex-col justify-between h-full">
                   <div className="flex flex-col gap-4">

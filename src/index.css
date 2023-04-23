@@ -8,10 +8,9 @@ body {
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
-
 body {
   background: #fffbf5;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif, "Great Vibes",
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif, "Playfair Display",
     cursive;
   font-size: 14px;
   color: #000;
@@ -41,8 +40,10 @@ body {
 .framerMotion {
   animation: framerMotion 3s;
 }
+.framerMotion2 {
+  animation: framerMotion 0.5s;
+}
 .glamour {
-  font-family: "Great Vibes";
 }
 .leavesContainer {
   background: radial-gradient(#333, #000);
