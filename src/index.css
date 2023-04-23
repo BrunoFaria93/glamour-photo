@@ -39,7 +39,7 @@ body {
 }
 
 .framerMotion {
-  animation: framerMotion 0.3s;
+  animation: framerMotion 3s;
 }
 .glamour {
   font-family: "Great Vibes";
@@ -124,6 +124,20 @@ body {
   100% {
     top: 110%;
     transform: translteX(-20px) rotate(225deg);
+  }
+}
+.entrance{
+  animation: entranceAnimate 2s;
+}
+@keyframes entranceAnimate {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 code {
