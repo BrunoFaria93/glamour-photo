@@ -106,6 +106,8 @@ const ProductsContainer = ({ height }) => {
                               image?.alt_description?.length > 45 ? true : false
                             }
                             url={image?.urls?.small}
+                            activateBuyButton={true}
+                            activateImg={true}
                           />
                           <div className="px-3 py-1 absolute font-bold text-sm text-[#674188] bg-[#F7EFE5] top-0 left-0 right-0 w-screen">
                             Description: {image?.alt_description}

@@ -5,14 +5,14 @@ const Header = ({ setOpen, open, height, numCart }) => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex justify-center items-center h-[8vh] py-3 w-full bg-[#674188]">
+      <header className="sticky top-0 z-50 flex justify-center items-center h-[8vh] lg:h-[10vh] py-3 w-full bg-[#674188]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-7 h-7 ml-2 text-white"
+          className="w-7 h-7 lg:w-10 lg:h-10 ml-2 lg:ml-5 text-white cursor-pointer"
           onClick={() => setOpen(!open)}
         >
           <path
@@ -26,23 +26,23 @@ const Header = ({ setOpen, open, height, numCart }) => {
             <div
               onClick={() => setOpen(false)}
               style={{ height: height }}
-              className="framerMotion2 absolute top-[8vh] left-0 z-50 overflow-hidden bg-[#170e1e] opacity-90 w-screen"
+              className="framerMotion2 absolute top-[8vh] left-0 z-50 lg:mt-3 overflow-hidden bg-[#170e1e] opacity-90 w-screen"
             ></div>
-            <div className="framerMotion2 text-[#674188] absolute top-[8vh] left-0 z-50 bg-[#F7EFE5] w-[60vw] h-[90vh] py-5">
+            <div className="framerMotion2 text-[#674188] absolute top-[8vh] lg:mt-3 left-0 z-50 bg-[#F7EFE5] w-[60vw] lg:w-[30vw] h-[90vh] py-5">
               <div className="flex flex-col gap-4 h-full w-full px-3">
                 <div className="flex flex-col justify-between h-full">
                   <div className="flex flex-col gap-4">
-                  <div className="flex h-auto gap-1">
+                  <div className="flex items-center h-auto gap-1">
                       <img
-                        className="h-5 w-5"
+                        className="h-5 w-5 lg:h-9 lg:w-9"
                         src={require("../../assets/resume.png")}
                         alt=""
                       ></img>
-                      <a href="https://portfolio-ochre-beta-17.vercel.app">Portfólio</a>
+                      <a href="https://portfolio-brunofaria.vercel.app">Portfólio</a>
                     </div>
-                    <div className="flex h-auto gap-1">
+                    <div className="flex items-center  h-auto gap-1">
                       <img
-                        className="h-5 w-5"
+                        className="h-5 w-5 lg:h-9 lg:w-9"
                         src={require("../../assets/linkedin.png")}
                         alt=""
                       ></img>
@@ -50,18 +50,18 @@ const Header = ({ setOpen, open, height, numCart }) => {
                         Linkedin
                       </a>
                     </div>
-                    <div className="flex h-auto gap-1">
+                    <div className="flex items-center h-auto gap-1">
                       <img
-                        className="h-5 w-5"
+                        className="h-5 w-5 lg:h-9 lg:w-9"
                         src={require("../../assets/github.png")}
                         alt=""
                       ></img>
-                      <a href="https://github.com/BrunoFaria93">Github</a>
+                      <a className="" href="https://github.com/BrunoFaria93">Github</a>
                     </div>
                   </div>
                   <div
                     onClick={() => navigate("/login")}
-                    className="flex gap-1 h-12 justify-end mr-5"
+                    className="flex gap-1 h-12 justify-end mr-5 mb-1"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const Header = ({ setOpen, open, height, numCart }) => {
         <div className="h-auto flex justify-center text-2xl items-center w-full text-[#674188]">
           <img
             onClick={() => navigate("/")}
-            className="h-44 w-44 ml-2 object-cover"
+            className="h-44 lg:h-60 w-44 lg:w-60 ml-2 object-cover cursor-pointer"
             src={require("../../assets/logoGLA.png")}
             alt="cameraIcont"
           />
@@ -101,7 +101,7 @@ const Header = ({ setOpen, open, height, numCart }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-7 h-7 mr-3 text-white"
+            className="w-7 h-7 lg:w-9 lg:h-9 mr-3 lg:mr-7 text-white cursor-pointer"
             onClick={() => navigate("/cart")}
           >
             <path
@@ -112,8 +112,8 @@ const Header = ({ setOpen, open, height, numCart }) => {
           </svg>
           {numCart > 0 && (
             <>
-              <div className="bg-orange-600 absolute -top-2 right-2 rounded-full h-4 w-4 animate-ping "></div>
-              <div className="bg-orange-600 absolute -top-2 right-2  rounded-full h-4 w-4 flex justify-center items-center">
+              <div className="bg-orange-600 absolute -top-2 right-2 lg:right-5 rounded-full h-4 w-4 animate-ping "></div>
+              <div className="bg-orange-600 absolute -top-2 right-2 lg:right-5 rounded-full h-4 w-4 flex justify-center items-center">
                 <span className="text-[8px] text-white">{numCart}</span>
               </div>
             </>

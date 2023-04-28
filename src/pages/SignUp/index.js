@@ -43,7 +43,7 @@ const SignUp = () => {
           <div class="w-screen flex flex-col justify-center items-center">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="entrance bg-white shadow-md w-[80vw] rounded px-3 pt-5 pb-5 mb-4"
+              className="entrance bg-white shadow-md w-[80vw] lg:w-[23vw] lg:px-6 lg:py-10 rounded px-3 pt-5 pb-5 mb-4"
             >
               <div className="mb-4">
                 <label
@@ -61,7 +61,7 @@ const SignUp = () => {
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs italic">
-                    Please choose a email.
+                    Please choose an email.
                   </p>
                 )}
               </div>
@@ -87,7 +87,7 @@ const SignUp = () => {
               </div>
               <div className="flex flex-col items-center">
                 <button
-                  className="bg-[#674188] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="bg-[#674188] hover:bg-[#342046] duration-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   type="submit"
                   value="SignUp"
                 >
@@ -97,7 +97,7 @@ const SignUp = () => {
                   <p>Already have an account? </p>
                   <div
                     onClick={() => navigate("/login")}
-                    className="text-[#674188] font-bold ml-1 underline underline-offset-2"
+                    className="text-[#674188] cursor-pointer font-bold ml-1 underline underline-offset-2"
                   >
                     Login here.
                   </div>

@@ -9,7 +9,15 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartStorage"))
   );
+  const [isMobile, setIsMobile] = useState(true);
   var total = 0;
+
+  useEffect(() => {
+    setHeight(window.innerHeight);
+    if (window.innerWidth > 640) {
+      setIsMobile(false);
+    }
+  }, []);
 
   useEffect(() => {
     setHeight(window.innerHeight);
@@ -70,77 +78,153 @@ const Cart = () => {
             ></img>
           </div>
           <h2 className="text-center mt-6 text-lg font-bold">
-          Your shopping cart is empty.
+            Your shopping cart is empty.
           </h2>
         </>
       ) : (
         <>
-          <div className="flex flex-col bg-[#F7EFE5] h-[85vh] gap-2 p-5 px-3 overflow-y-auto">
-            {cartItems?.map((cartItem, index) => {
-              total = cartItem?.price + total;
-              return (
-                <div key={index} className="flex justify-between relative">
-                  <div className="flex justify-center items-center bg-[#ff6347] w-6 h-6 absolute right-2 top-2 rounded-full">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="w-4 h-4 text-white font-bold"
-                      onClick={() => {
-                        removeItems(index);
-                      }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
+          {isMobile ? (
+            <div className="flex flex-col bg-[#F7EFE5] h-[85vh]  lg:mx-auto gap-2 p-5 px-3 overflow-y-auto">
+              {cartItems?.map((cartItem, index) => {
+                total = cartItem?.price + total;
+                return (
+                  <div key={index} className="flex justify-between relative">
+                    <div className="flex justify-center items-center bg-[#ff6347] w-6 h-6 absolute right-2 top-2 rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-4 h-4 text-white font-bold"
+                        onClick={() => {
+                          removeItems(index);
+                        }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </div>
+                    <div className="absolute bg-gradient-to-r from-slate-900 rounded-md h-32 top-0 left-0 w-20"></div>
+                    <img
+                      src={cartItem?.url}
+                      alt=""
+                      className="w-full rounded-md h-32 object-cover"
+                    ></img>
+                    <div className="text-[#FFFBF5] absolute right-2 bottom-2 bg-[#674188] p-1 px-2 opacity-95 rounded-md">
+                      R$ {cartItem?.price},00
+                    </div>
                   </div>
-                  <div className="absolute bg-gradient-to-r from-slate-900 rounded-md h-32 top-0 left-0 w-20"></div>
-                  <img
-                    src={cartItem?.url}
-                    alt=""
-                    className="w-full rounded-md h-32 object-cover"
-                  ></img>
-                  <div className="text-[#FFFBF5] absolute right-2 bottom-2 bg-[#674188] p-1 px-2 opacity-95 rounded-md">
-                    R$ {cartItem?.price},00
-                  </div>
-                </div>
-              );
-            })}
-            <div className="w-full flex flex-wrap justify-between items-center">
-              <button
-                onClick={() => {
-                  setCartItems([]);
-                  localStorage.clear();
-                }}
-                className="text-[#ff6347] pb-2 rounded-md font-bold"
-              >
-                Clear shopping cart
-              </button>
-              <div className="flex flex-col justify-start items-end mt-7">
-                <div className="text-[#674188] font-bold text-lg">
-                  <p>Total: R${total},00</p>
-                </div>
+                );
+              })}
+              <div className="w-full flex flex-wrap justify-between items-center">
                 <button
                   onClick={() => {
-                    // downloadFiles();
                     setCartItems([]);
                     localStorage.clear();
-                    navigate("/sucessPurchase", {
-                      state: { cartItems: cartItems },
-                    });
                   }}
-                  className="bg-[#674188] text-white px-4 py-1 rounded-md mt-2 font-bold"
+                  className="text-[#ff6347] pb-2 rounded-md font-bold"
                 >
-                  Proceed to checkout
+                  Clear shopping cart
                 </button>
+                <div className="flex flex-col justify-start items-end mt-7">
+                  <div className="text-[#674188] font-bold text-lg">
+                    <p>Total: R${total},00</p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      // downloadFiles();
+                      setCartItems([]);
+                      localStorage.clear();
+                      navigate("/sucessPurchase", {
+                        state: { cartItems: cartItems },
+                      });
+                    }}
+                    className="bg-[#674188] text-white px-4 py-1 rounded-md mt-2 font-bold"
+                  >
+                    Proceed to checkout
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <>
+              <div className="flex justify-center items-center w-screen h-full bg-[#c1bbb3]">
+                <div className="flex flex-col bg-[#F7EFE5] h-[75vh] rounded-xl w-[70vh] mb-10 gap-2 p-5 px-3 overflow-y-auto">
+                  {cartItems?.map((cartItem, index) => {
+                    total = cartItem?.price + total;
+                    return (
+                      <div
+                        key={index}
+                        className="flex justify-between relative"
+                      >
+                        <div className="flex justify-center items-center bg-[#ff6347] w-6 h-6 absolute right-2 top-2 rounded-full">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-4 h-4 text-white font-bold cursor-pointer"
+                            onClick={() => {
+                              removeItems(index);
+                            }}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </div>
+                        <div className="absolute bg-gradient-to-r from-slate-900 rounded-md h-32 top-0 left-0 w-20"></div>
+                        <img
+                          src={cartItem?.url}
+                          alt=""
+                          className="w-full rounded-md h-32 object-cover"
+                        ></img>
+                        <div className="text-[#FFFBF5] absolute right-2 bottom-2 bg-[#674188] p-1 px-2 opacity-95 rounded-md">
+                          R$ {cartItem?.price},00
+                        </div>
+                      </div>
+                    );
+                  })}
+                  <div className="w-full flex flex-wrap justify-between items-center">
+                    <button
+                      onClick={() => {
+                        setCartItems([]);
+                        localStorage.clear();
+                      }}
+                      className="text-[#ff6347] pb-2 rounded-md font-bold"
+                    >
+                      Clear shopping cart
+                    </button>
+                    <div className="flex flex-col justify-start items-end mt-7">
+                      <div className="text-[#674188] font-bold text-lg">
+                        <p>Total: R${total},00</p>
+                      </div>
+                      <button
+                        onClick={() => {
+                          // downloadFiles();
+                          setCartItems([]);
+                          localStorage.clear();
+                          navigate("/sucessPurchase", {
+                            state: { cartItems: cartItems },
+                          });
+                        }}
+                        className="bg-[#674188] hover:bg-[#342046] duration-200 text-white px-4 py-1 rounded-md mt-2 font-bold"
+                      >
+                        Proceed to checkout
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
         </>
       )}
     </main>

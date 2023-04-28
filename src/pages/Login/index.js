@@ -17,7 +17,6 @@ const Login = () => {
 
   const checkAccount = (data) => {
     let account = JSON.parse(localStorage.getItem("account"));
-    console.log("account ", account);
     if (account?.email === data?.email) {
       if (account.password === data.password) {
         localStorage.setItem("token", "logadocomsucesso");
@@ -84,7 +83,7 @@ const Login = () => {
           <div class="w-screen flex flex-col justify-center items-center">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="entrance bg-white shadow-md w-[80vw] rounded px-3 pt-5 pb-5 mb-4"
+              className="entrance bg-white shadow-md w-[80vw] lg:w-[23vw] rounded px-3 lg:px-6 lg:py-10 pt-5 pb-5 mb-4"
             >
               <div className="mb-4">
                 <label
@@ -102,7 +101,7 @@ const Login = () => {
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs italic">
-                    Please choose a email.
+                    Please choose an email.
                   </p>
                 )}
               </div>
@@ -128,7 +127,7 @@ const Login = () => {
               </div>
               <div className="flex flex-col items-center">
                 <button
-                  className="bg-[#674188] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="bg-[#674188] hover:bg-[#342046] duration-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   type="submit"
                   value="Login"
                 >
@@ -138,7 +137,7 @@ const Login = () => {
                   <p>Don't have an account yet? </p>
                   <div
                     onClick={() => navigate("/signup")}
-                    className="text-[#674188] font-bold ml-1 underline underline-offset-2"
+                    className="text-[#674188] font-bold ml-1 cursor-pointer underline underline-offset-2"
                   >
                     Create one.
                   </div>

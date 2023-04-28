@@ -9,7 +9,7 @@ const ThankYouPage = () => {
     <>
       <div className="flex flex-col justify-center items-center h-screen w-full">
       <h1 className="glamour mb-5 text-6xl text-[#674188]">Thank you!!</h1>
-      <img className="w-[90%]" src={require("../../assets/party.png")} alt=""></img>
+      <img className="w-[65%] lg:w-[30%]" src={require("../../assets/party.png")} alt=""></img>
       <h2 className="mt-10 text-md text-[#674188]">developed by Bruno Faria.</h2>
       <button onClick={() => navigate("/")}  className="px-5 py-1 bg-[#674188] text-white rounded-full mt-4">Back</button>
       </div>

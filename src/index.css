@@ -19,6 +19,27 @@ body {
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 20px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cdced4; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b2b4bd; 
+}
 .swiper {
   width: 100%;
   height: 100%;
@@ -44,6 +65,29 @@ body {
   animation: framerMotion 0.5s;
 }
 .glamour {
+}
+/* :root {
+  --swiper-navigation-color: white;
+  left: 50vw;
+} */
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
+    right:10px;
+    padding: 30px;
+    border-radius: 10px;
+    color: #000 !important;
+    fill: black !important;
+    stroke: black !important;
+}
+.swiper-button-next{
+   top: 50vh !important;
+   left: 45vw !important;
+}
+.swiper-button-prev{
+  top: 50vh !important;
+  left: 11vw !important;
 }
 .leavesContainer {
   background: radial-gradient(#333, #000);

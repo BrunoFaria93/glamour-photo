@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 
@@ -15,6 +15,8 @@ export const UnsplashImage = ({
   longText,
   setCartItems,
   cartItems,
+  activateBuyButton,
+  activateImg,
 }) => {
   var price = Math.floor(Math.random() * 10) + 1;
 
@@ -51,17 +53,19 @@ export const UnsplashImage = ({
   };
   return (
     <>
-      <Img key={key} src={url} alt="" />
-      <div
-        onClick={() => addToCart()}
-        className={
-          longText
-            ? "absolute right-3 top-24 bg-gradient-to-t from-[#53346e] to-[#674188] px-4 text-white font-bold py-1.5 rounded-full"
-            : "absolute right-3 top-20 bg-[#674188] px-4 text-white font-bold py-1.5 rounded-full"
-        }
-      >
-        Buy
-      </div>
+      {activateImg && <Img key={key} src={url} alt="" />}
+      {activateBuyButton && (
+        <div
+          onClick={() => addToCart()}
+          className={
+            longText
+              ? "absolute right-3 top-24 cursor-pointer bg-[#674188] hover:bg-[#342046] duration-200 px-4 text-white font-bold py-1.5 rounded-full"
+              : "absolute right-3 top-20 bg-[#674188] hover:bg-[#342046] duration-200 px-4 text-white cursor-pointer font-bold py-1.5 rounded-full"
+          }
+        >
+          Buy
+        </div>
+      )}
     </>
   );
 };
